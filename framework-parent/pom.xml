@@ -1,31 +1,39 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <modelVersion>4.0.0</modelVersion>
-  <groupId>com.zghw.framework</groupId>
-  <artifactId>framework-parent</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
-  <packaging>pom</packaging>
-  <modules>
-  	<module>framework-base-service-api</module>
-  	<module>framework-base-service-impl</module>
-  	<module>framework-webapp</module>
-  	<module>framework-simple-service-api</module>
-  	<module>framework-simple-service-impl</module>
-  	<module>framework-simple-webapp</module>
-  	<module>framework-base-webapp</module>
-  </modules>
-  	<properties>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.zghw.framework</groupId>
+	<artifactId>framework-parent</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>pom</packaging>
+	<modules>
+		<module>framework-base-service-api</module>
+		<module>framework-base-service-impl</module>
+		<module>framework-webapp</module>
+		<module>framework-simple-service-api</module>
+		<module>framework-simple-service-impl</module>
+		<module>framework-simple-webapp</module>
+		<module>framework-base-webapp</module>
+	</modules>
+	<properties>
 		<spring.version>4.1.6.RELEASE</spring.version>
 		<dubbo.version>2.5.3</dubbo.version>
 		<zkclient.version>0.8</zkclient.version>
+		<ons.version>1.2.4</ons.version>
+		<junit.version>4.10</junit.version>
 	</properties>
-	
+
 	<dependencyManagement>
 		<dependencies>
-		   <dependency>
-		        <groupId>org.springframework</groupId>
-		        <artifactId>spring-context</artifactId>
-		        <version>${spring.version}</version>
-		    </dependency>
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-context</artifactId>
+				<version>${spring.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-test</artifactId>
+				<version>${spring.version}</version>
+			</dependency>
 			<dependency>
 				<groupId>com.alibaba</groupId>
 				<artifactId>dubbo</artifactId>
@@ -38,25 +46,21 @@
 				</exclusions>
 			</dependency>
 			<dependency>
-			    <groupId>com.101tec</groupId>
-			    <artifactId>zkclient</artifactId>
-			    <version>${zkclient.version}</version>
+				<groupId>com.101tec</groupId>
+				<artifactId>zkclient</artifactId>
+				<version>${zkclient.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.aliyun.openservices</groupId>
+				<artifactId>ons-client</artifactId>
+				<version>${ons.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>junit</groupId>
+				<artifactId>junit</artifactId>
+				<version>${junit.version}</version>
 			</dependency>
 		</dependencies>
 	</dependencyManagement>
 
-	<dependencies>
-		<dependency>
-	        <groupId>org.springframework</groupId>
-	        <artifactId>spring-context</artifactId>
-	    </dependency>
-		<dependency>
-			<groupId>com.alibaba</groupId>
-			<artifactId>dubbo</artifactId>
-		</dependency>
-		<dependency>
-		    <groupId>com.101tec</groupId>
-		    <artifactId>zkclient</artifactId>
-		</dependency>
-	</dependencies>
 </project>
