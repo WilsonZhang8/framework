@@ -17,5 +17,6 @@ public interface ChainConstant {
 	public static final String EXIST="exist";
 	public static final String NON_EXIST="nonexist";
 	public static final String MESSAGE="message";
+	public static final String REQUEST="request";
 
 }

@@ -12,7 +12,7 @@ public class TestChain {
 		ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext ("spring.xml");
 		context.start ();
         BaseController bc=context.getBean(BaseController.class);
-        bc.getInfo();
+       // bc.getInfo(null, null);
         try {
             System.in.read ();
         } catch (IOException e) {

@@ -14,8 +14,11 @@
 	
 	<!-- 属性替换符 -->
 	<context:property-placeholder location="classpath:project.properties"/>
+	<context:property-placeholder location="classpath:api-ons.properties"/>
 	<!-- 导入dubbo配置、消费者配置、提供者配置 -->
 	<import resource="classpath*:/**/*-dubbo.xml"/>
 	<!-- 导入chain配置-->
 	<import resource="classpath*:/**/*-chain.xml"/>
+	<!-- 导入ONS配置-->
+	<import resource="classpath*:/**/*-ons.xml"/>
 </beans> 
