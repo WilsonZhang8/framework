@@ -27,7 +27,7 @@ public class HandleNode extends AbstractNode {
 	public String doNode(ValueStack valueStack) throws Exception {
 		String message = helloBaseService.helloBase();
 		valueStack.setValue(MESSAGE, message);
-		logger.info("PC_A1_BASE_001推送消息到ONS >> "+message);
+		logger.info("接口：[ PC_A1_BASE_001 ] 推送消息到ONS >> " + message);
 		onsProducerService.sendSingle(producerConfig, message);
 		return NEXT;
 	}

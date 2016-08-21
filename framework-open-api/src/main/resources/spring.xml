@@ -12,9 +12,8 @@
 	<!--开启aAspectj注解自动代理对象  -->
 	<aop:aspectj-autoproxy/>
 	
-	<!-- 属性替换符 -->
-	<context:property-placeholder location="classpath:project.properties"/>
-	<context:property-placeholder location="classpath:api-ons.properties"/>
+	<!-- 属性替换符 ,多个用逗号分隔-->
+	<context:property-placeholder location="classpath:project.properties,classpath*:/**/*-ons.properties"/>
 	<!-- 导入dubbo配置、消费者配置、提供者配置 -->
 	<import resource="classpath*:/**/*-dubbo.xml"/>
 	<!-- 导入chain配置-->
