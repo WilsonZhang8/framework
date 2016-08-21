@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="  
+            http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.1.xsd  
+            http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.1.xsd">
+	<!-- 公共节点 -->
+	<!-- reqeust请求参数放入值栈中节点 -->
+	<bean id="paramValuesNode"
+		class="com.zghw.framework.open.api.common.nodes.ParamValuesNode">
+		<property name="name" value="paramValuesNode" />
+		<property name="forwards">
+			<map><!-- 下一个节点使用该公共节点一定要配置该名称 -->
+				<entry key="next" value="verifyNode" />
+				<entry key="error" value="errorNode" />
+			</map>
+		</property>
+	</bean>
+	<!-- 请求参数放入值栈中节点 -->
+	<bean id="parsingNode" class="com.zghw.framework.open.api.common.nodes.ParsingNode">
+		<property name="name" value="parsingNode" />
+		<property name="forwards">
+			<map><!-- 下一个节点使用该公共节点一定要配置该名称 -->
+				<entry key="next" value="verifyNode" />
+				<entry key="error" value="errorNode" />
+			</map>
+		</property>
+	</bean>
+	<!-- 成功节点 -->
+	<bean id="successNode" class="com.zghw.framework.open.api.common.nodes.SuccessNode">
+		<property name="name" value="successNode" />
+	</bean>
+	<!-- 失败节点 -->
+	<bean id="errorNode" class="com.zghw.framework.open.api.common.nodes.ErrorNode">
+		<property name="name" value="errorNode" />
+	</bean>
+</beans> 

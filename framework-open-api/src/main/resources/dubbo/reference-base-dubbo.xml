@@ -5,6 +5,6 @@
 	http://www.springframework.org/schema/beans/spring-beans.xsd 
 	http://code.alibabatech.com/schema/dubbo 
 	http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
-	<!-- 消费服务 -->
+	<!-- base模块消费服务配置 -->
 	<dubbo:reference id="helloBaseService" interface="com.zghw.framework.base.service.api.IHelloBaseService"/>
 	</beans>
