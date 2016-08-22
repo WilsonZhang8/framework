@@ -5,6 +5,12 @@ import java.util.List;
 import com.aliyun.openservices.ons.api.SendResult;
 import com.zghw.framework.ons.api.ProducerConfig;
 
+/**
+ * 消息生产服务，负责生产并发送消息。
+ * 
+ * @author zghw
+ *
+ */
 public interface IOnsProducerService {
 
 	/**

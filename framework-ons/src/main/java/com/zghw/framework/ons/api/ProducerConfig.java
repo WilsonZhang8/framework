@@ -2,6 +2,12 @@ package com.zghw.framework.ons.api;
 
 import java.io.Serializable;
 
+/**
+ * 消息生产者对应的配置
+ * 
+ * @author zghw
+ *
+ */
 public class ProducerConfig implements Serializable {
 
 	private static final long serialVersionUID = 1L;
