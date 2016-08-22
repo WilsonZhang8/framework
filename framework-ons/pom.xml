@@ -51,7 +51,7 @@
 		</profile>
 	</profiles>
 	<build>
-		<finalName>framework-simple-service-impl</finalName>
+		<finalName>framework-ons</finalName>
 		<!-- 打包资源目录设定 -->
 		<resources>
 			<resource>
