@@ -17,7 +17,7 @@
 		</property>
 	</bean>
 	<!-- 请求参数放入值栈中节点 -->
-	<bean id="parsingNode" class="com.zghw.framework.open.api.common.nodes.ParsingNode">
+	<bean id="parsingNode" class="com.zghw.framework.open.api.common.nodes.ParsingNode" scope="prototype">
 		<property name="name" value="parsingNode" />
 		<property name="forwards">
 			<map><!-- 下一个节点使用该公共节点一定要配置该名称 -->
@@ -27,11 +27,11 @@
 		</property>
 	</bean>
 	<!-- 成功节点 -->
-	<bean id="successNode" class="com.zghw.framework.open.api.common.nodes.SuccessNode">
+	<bean id="successNode" class="com.zghw.framework.open.api.common.nodes.SuccessNode" scope="prototype">
 		<property name="name" value="successNode" />
 	</bean>
 	<!-- 失败节点 -->
-	<bean id="errorNode" class="com.zghw.framework.open.api.common.nodes.ErrorNode">
+	<bean id="errorNode" class="com.zghw.framework.open.api.common.nodes.ErrorNode" scope="prototype">
 		<property name="name" value="errorNode" />
 	</bean>
 </beans> 

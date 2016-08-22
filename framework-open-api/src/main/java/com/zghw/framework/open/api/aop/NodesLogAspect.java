@@ -9,7 +9,10 @@ import org.aspectj.lang.annotation.Pointcut;
 import org.springframework.stereotype.Component;
 import org.springframework.util.ClassUtils;
 
+import com.alibaba.dubbo.common.json.JSON;
+import com.zghw.framework.chain.ChainConstant;
 import com.zghw.framework.chain.ValueStack;
+import com.zghw.framework.entity.common.Result;
 
 /**
  * 针对节点做的切面日志记录
@@ -48,12 +51,16 @@ public class NodesLogAspect {
 		logger.info(">>>>>>进入结点[" + nodeName + "]<<<<<<");
 		try {
 			result = String.valueOf(pjp.proceed());// 通过一个个通知方法拦截器链得到返回的对象。
+			// 后置通知
+			logger.info("<<<<<<离开结点[" + nodeName + "]>>>>>>");
+			if (valueStack.getValue(ChainConstant.RESULT) != null) {
+				Result res = (Result) valueStack.getValue(ChainConstant.RESULT);
+				logger.info("<<<<<<处理的result结果为：>>>>>>" + JSON.json(res));
+			}
 		} catch (Throwable e) {
 			logger.info(">>>>>>结点[" + nodeName + "]出现异常>>>>>>" + e.getMessage());
 			e.printStackTrace();
 		}
-		// 后置通知
-		logger.info("<<<<<<离开结点[" + nodeName + "]>>>>>>");
 		return result;
 	}
 }
