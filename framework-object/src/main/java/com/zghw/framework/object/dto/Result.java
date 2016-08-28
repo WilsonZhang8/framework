@@ -1,4 +1,4 @@
-package com.zghw.framework.entity.common;
+package com.zghw.framework.object.dto;
 
 import java.io.Serializable;
 

@@ -4,8 +4,8 @@ import org.springframework.util.StringUtils;
 
 import com.zghw.framework.chain.ValueStack;
 import com.zghw.framework.chain.impl.AbstractNode;
-import com.zghw.framework.entity.common.Result;
-import com.zghw.framework.entity.common.ResultConstant;
+import com.zghw.framework.object.dto.Result;
+import com.zghw.framework.object.dto.ResultConstant;
 
 /**
  * 成功节点处理结果

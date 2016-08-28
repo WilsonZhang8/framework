@@ -6,10 +6,13 @@
 		<artifactId>framework-parent</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
-	<artifactId>framework-open-api</artifactId>
-	<packaging>war</packaging>
-
+	<artifactId>framework-http-service-impl</artifactId>
 	<dependencies>
+		<dependency>
+			<groupId>com.zghw.framework</groupId>
+			<artifactId>framework-common</artifactId>
+			<version>${project.parent.version}</version>
+		</dependency>
 		<dependency>
 			<groupId>com.zghw.framework</groupId>
 			<artifactId>framework-config</artifactId>
@@ -17,45 +20,26 @@
 		</dependency>
 		<dependency>
 			<groupId>com.zghw.framework</groupId>
-			<artifactId>framework-common</artifactId>
-			<version>${project.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>com.zghw.framework</groupId>
-			<artifactId>framework-base-service-api</artifactId>
+			<artifactId>framework-http-service-api</artifactId>
 			<version>${project.parent.version}</version>
 		</dependency>
+		<!-- httpclient config begin -->
 		<dependency>
-			<groupId>com.zghw.framework</groupId>
-			<artifactId>framework-simple-service-api</artifactId>
-			<version>${project.parent.version}</version>
+			<groupId>org.apache.httpcomponents</groupId>
+			<artifactId>httpclient</artifactId>
 		</dependency>
 		<dependency>
-			<groupId>com.zghw.framework</groupId>
-			<artifactId>framework-chain</artifactId>
-			<version>${project.parent.version}</version>
+			<groupId>org.apache.httpcomponents</groupId>
+			<artifactId>httpmime</artifactId>
 		</dependency>
 		<dependency>
-			<groupId>com.zghw.framework</groupId>
-			<artifactId>framework-ons</artifactId>
-			<version>${project.parent.version}</version>
+			<groupId>org.apache.httpcomponents</groupId>
+			<artifactId>httpcore</artifactId>
 		</dependency>
-
+		<!-- httpclient config end -->
 		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-webmvc</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-web</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>com.fasterxml.jackson.core</groupId>
-			<artifactId>jackson-core</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>com.fasterxml.jackson.core</groupId>
-			<artifactId>jackson-databind</artifactId>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-lang3</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>javax.servlet</groupId>
@@ -88,7 +72,7 @@
 		</profile>
 	</profiles>
 	<build>
-		<finalName>framework-open-api</finalName>
+		<finalName>framework-http-service-impl</finalName>
 		<!-- 打包资源目录设定 -->
 		<resources>
 			<resource>
@@ -111,5 +95,4 @@
 			</resource>
 		</resources>
 	</build>
-
 </project>

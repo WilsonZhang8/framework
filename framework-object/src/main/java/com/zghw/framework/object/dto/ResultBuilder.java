@@ -1,7 +1,7 @@
-package com.zghw.framework.entity.common;
+package com.zghw.framework.object.dto;
 
-import com.zghw.framework.entity.common.Result;
-import com.zghw.framework.entity.common.ResultConstant;
+import com.zghw.framework.object.dto.Result;
+import com.zghw.framework.object.dto.ResultConstant;
 /**
  * 构建几个默认结果对象
  * @author zghw

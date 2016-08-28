@@ -5,26 +5,28 @@ import java.io.IOException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.apache.log4j.LogManager;
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.alibaba.dubbo.common.json.JSON;
 import com.zghw.framework.chain.Chain;
 import com.zghw.framework.chain.ChainConstant;
 import com.zghw.framework.chain.ValueStack;
-import com.zghw.framework.entity.common.Result;
-import com.zghw.framework.entity.common.ResultBuilder;
+import com.zghw.framework.object.dto.Result;
+import com.zghw.framework.open.api.module.ChainHandler;
 
 @Controller
 @RequestMapping("open/base")
 public class BaseController {
-	private Logger logger = LogManager.getLogger(this.getClass());
+	public static Logger logger = LoggerFactory.getLogger(BaseController.class);
+
 	private Chain chain_A1_BASE_001;// 接口A1_BASE_001
+	//引入处理器
+	private ChainHandler handler;
 
 	/**
 	 * 得到信息 接口A1_BASE_001
@@ -32,19 +34,17 @@ public class BaseController {
 	 * @param request
 	 * @param response
 	 * @return
-	 * @throws IOException 
+	 * @throws IOException
 	 */
 	@RequestMapping("/getInfo")
 	public @ResponseBody Result getInfo(HttpServletRequest request, HttpServletResponse response) throws IOException {
+
+		// 创建值栈
 		ValueStack valueStack = new ValueStack();
+		// request请求放入值栈中
 		valueStack.setValue(ChainConstant.REQUEST, request);
-		try {
-			chain_A1_BASE_001.doChain(valueStack);
-		} catch (Exception e) {
-			e.printStackTrace();
-			return ResultBuilder.buildError(e.getMessage(), valueStack.getValue(ChainConstant.DATA));
-		}
-		Result result= (Result) valueStack.getValue(ChainConstant.RESULT);
+		// 处理结果
+		Result result = handler.handle(chain_A1_BASE_001, valueStack);
 		return result;
 	}
 
@@ -52,4 +52,10 @@ public class BaseController {
 	public void setChain_A1_BASE_001(@Qualifier("chain_A1_BASE_001") Chain chain_A1_BASE_001) {
 		this.chain_A1_BASE_001 = chain_A1_BASE_001;
 	}
+
+	@Autowired
+	public void setHandler(ChainHandler handler) {
+		this.handler = handler;
+	}
+
 }

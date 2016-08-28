@@ -1,7 +1,8 @@
 package com.zghw.framework.open.api.module.base.chain.A1_BASE_001;
 
 import org.apache.log4j.LogManager;
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 
@@ -18,7 +19,7 @@ import com.zghw.framework.ons.api.producer.api.IOnsProducerService;
  *
  */
 public class HandleNode extends AbstractNode {
-	private Logger logger = LogManager.getLogger(this.getClass());
+	public static Logger logger = LoggerFactory.getLogger(HandleNode.class);
 	private IHelloBaseService helloBaseService;
 	private IOnsProducerService onsProducerService;
 	private ProducerConfig producerConfig;

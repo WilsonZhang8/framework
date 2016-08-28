@@ -27,5 +27,19 @@
 			</list>
 		</property>
 	</bean>
+	
+	<!-- 配置hanlder拦截器 -->
+	<mvc:interceptors>
+		<!--mvc:interceptor可以配置一个或多个 -->
+		<mvc:interceptor>
+			<!-- 配置拦截器记录日志， -->
+			<!--mvc:mapping 中的path，是要拦截的路径，可以使用Ant-style风格来配置 /*代表下一级目录，/**代表所有的子目录 -->
+			<mvc:mapping path="/**" />
+			<!--mvc:exclude-mapping 中的path，是排除不要拦截的路径，可以使用Ant-style风格来配置 -->
+			<!-- <mvc:exclude-mapping path="/auth/index" /> -->
+			<!-- 拦截器bean定义 -->
+			<bean class="com.zghw.framework.open.api.aop.LoggerInterceptor"></bean>
+		</mvc:interceptor>
+	</mvc:interceptors>
 
 </beans> 

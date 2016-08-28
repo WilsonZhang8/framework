@@ -1,18 +1,18 @@
 package com.zghw.framework.open.api.aop;
 
-import org.apache.log4j.LogManager;
-import org.apache.log4j.Logger;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Pointcut;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 import org.springframework.util.ClassUtils;
 
 import com.alibaba.dubbo.common.json.JSON;
 import com.zghw.framework.chain.ChainConstant;
 import com.zghw.framework.chain.ValueStack;
-import com.zghw.framework.entity.common.Result;
+import com.zghw.framework.object.dto.Result;
 
 /**
  * 针对节点做的切面日志记录
@@ -23,7 +23,7 @@ import com.zghw.framework.entity.common.Result;
 @Aspect
 @Component
 public class NodesLogAspect {
-	private Logger logger = LogManager.getLogger(this.getClass());
+	public static Logger logger = LoggerFactory.getLogger(NodesLogAspect.class);
 
 	/**
 	 * 定义切面 所有该目标下的doNode方法作为切面
@@ -43,7 +43,7 @@ public class NodesLogAspect {
 	 * @return
 	 */
 	@Around(value = "doNode(valueStack)", argNames = "valueStack")
-	public String doNodeAround(ProceedingJoinPoint pjp, ValueStack valueStack) {
+	public String doNodeAround(ProceedingJoinPoint pjp, ValueStack valueStack) throws Exception {
 		String result = null;
 		// 前置通知设置
 		Object target = pjp.getTarget();
@@ -58,8 +58,9 @@ public class NodesLogAspect {
 				logger.info("<<<<<<处理的result结果为：>>>>>>" + JSON.json(res));
 			}
 		} catch (Throwable e) {
-			logger.info(">>>>>>结点[" + nodeName + "]出现异常>>>>>>" + e.getMessage());
 			e.printStackTrace();
+			logger.info(">>>>>>结点[" + nodeName + "]出现异常>>>>>>" + e.getMessage());
+			throw new Exception(e);
 		}
 		return result;
 	}

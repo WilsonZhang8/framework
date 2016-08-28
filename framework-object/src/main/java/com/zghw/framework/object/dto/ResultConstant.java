@@ -1,4 +1,4 @@
-package com.zghw.framework.entity.common;
+package com.zghw.framework.object.dto;
 /**
  * 结果信息常量设置
  * @author zghw

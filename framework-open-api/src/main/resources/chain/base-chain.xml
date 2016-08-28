@@ -14,6 +14,7 @@
 		<!-- nodes节点集合 -->
 		<property name="nodes">
 			<list>
+				<!-- 引用公共节点 -->
 				<ref bean="paramValuesNode" />
 				<!-- 单个node节点配置，id设置为xxxNode,class是实现了Node接口的实现类， 一般实现AbstractNode节点 
 					，由开发人员具体实现并处理业务逻辑 -->
@@ -50,6 +51,7 @@
 						</map>
 					</property>
 				</bean>
+				<!-- 引用公共节点 -->
 				<ref bean="successNode" />
 				<ref bean="errorNode" />
 			</list>
