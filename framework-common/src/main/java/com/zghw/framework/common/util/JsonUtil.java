@@ -14,6 +14,15 @@ import com.zghw.framework.object.dto.ResultBuilder;
  *
  */
 public class JsonUtil {
+	
+	public static <T> T parse(String json,Class<T> type) throws ParseException{
+		return JSON.parse(json, type);
+	}
+	
+	public static String json(Object obj) throws IOException{
+		return JSON.json(obj);
+	}
+	
 	/**
 	 * 返回字符串结果转化为Result对象
 	 * 

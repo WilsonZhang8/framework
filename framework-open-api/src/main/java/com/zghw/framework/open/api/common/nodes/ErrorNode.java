@@ -17,6 +17,10 @@ public class ErrorNode extends AbstractNode {
 
 	@Override
 	public String doNode(ValueStack valueStack) throws Exception {
+		Result result = valueStack.getValue(RESULT, Result.class);
+		if (result != null) {
+			return null;
+		}
 		String code = valueStack.getString(CODE);
 		String state = valueStack.getString(STATE);
 		String msg = valueStack.getString(MSG);
@@ -24,7 +28,7 @@ public class ErrorNode extends AbstractNode {
 		code = StringUtils.hasText(code) ? code : ResultConstant.ERROR_CODE;
 		state = StringUtils.hasText(state) ? state : ResultConstant.ERROR_STATE;
 		msg = StringUtils.hasText(msg) ? msg : ResultConstant.ERROR_MSG;
-		Result result = new Result(code, state, msg, data);
+		result = new Result(code, state, msg, data);
 		valueStack.setValue(RESULT, result);
 		return null;
 	}

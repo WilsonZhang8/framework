@@ -9,4 +9,9 @@
 		<property name="url" value="${openApi.url}" />
 		<property name="path" value="${baseGetInfo.path}" />
 	</bean>
+	
+	<bean id="simpleRegister" class="com.zghw.framework.http.WebURL">
+		<property name="url" value="${openApi.url}" />
+		<property name="path" value="${simpleRegister.path}" />
+	</bean>
 </beans> 

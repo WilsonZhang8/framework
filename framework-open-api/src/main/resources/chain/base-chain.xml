@@ -21,7 +21,7 @@
 				<bean id="verifyNode"
 					class="com.zghw.framework.open.api.module.base.chain.A1_BASE_001.VerifyNode">
 					<!--name代表节点的名称，value可以和设置的bean的id相同 -->
-					<property name="name" value="verifyNode" />
+					<property name="name" value="paramValuesJoinNode" />
 					<!--节点流向，有节点处理结果返回字符串来决定下个节点的流向 -->
 					<property name="forwards">
 						<map>

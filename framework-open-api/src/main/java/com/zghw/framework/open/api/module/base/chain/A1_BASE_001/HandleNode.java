@@ -1,6 +1,5 @@
 package com.zghw.framework.open.api.module.base.chain.A1_BASE_001;
 
-import org.apache.log4j.LogManager;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

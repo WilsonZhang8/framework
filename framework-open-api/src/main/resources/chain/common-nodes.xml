@@ -11,27 +11,32 @@
 		<property name="name" value="paramValuesNode" />
 		<property name="forwards">
 			<map><!-- 下一个节点使用该公共节点一定要配置该名称 -->
-				<entry key="next" value="verifyNode" />
+				<entry key="next" value="paramValuesJoinNode" />
 				<entry key="error" value="errorNode" />
 			</map>
 		</property>
 	</bean>
 	<!-- 请求参数放入值栈中节点 -->
-	<bean id="parsingNode" class="com.zghw.framework.open.api.common.nodes.ParsingNode" scope="prototype">
-		<property name="name" value="parsingNode" />
+	<bean id="parseDTODataNode"
+		class="com.zghw.framework.open.api.common.nodes.ParseDTODataNode"
+		scope="prototype">
+		<!-- 注意：这个链接点需要 paramValuesNode作为组合节点 一个chain中只能有一个paramValuesJoinNode -->
+		<property name="name" value="paramValuesJoinNode" />
 		<property name="forwards">
 			<map><!-- 下一个节点使用该公共节点一定要配置该名称 -->
-				<entry key="next" value="verifyNode" />
+				<entry key="next" value="parseDTODataJoinNode" />
 				<entry key="error" value="errorNode" />
 			</map>
 		</property>
 	</bean>
 	<!-- 成功节点 -->
-	<bean id="successNode" class="com.zghw.framework.open.api.common.nodes.SuccessNode" scope="prototype">
+	<bean id="successNode" class="com.zghw.framework.open.api.common.nodes.SuccessNode"
+		scope="prototype">
 		<property name="name" value="successNode" />
 	</bean>
 	<!-- 失败节点 -->
-	<bean id="errorNode" class="com.zghw.framework.open.api.common.nodes.ErrorNode" scope="prototype">
+	<bean id="errorNode" class="com.zghw.framework.open.api.common.nodes.ErrorNode"
+		scope="prototype">
 		<property name="name" value="errorNode" />
 	</bean>
 </beans> 

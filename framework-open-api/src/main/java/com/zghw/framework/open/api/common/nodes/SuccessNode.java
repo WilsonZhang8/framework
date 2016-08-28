@@ -17,6 +17,10 @@ public class SuccessNode extends AbstractNode {
 
 	@Override
 	public String doNode(ValueStack valueStack) throws Exception {
+		Result result = valueStack.getValue(RESULT, Result.class);
+		if (result != null) {
+			return null;
+		}
 		String code = valueStack.getString(CODE);
 		String state = valueStack.getString(STATE);
 		String msg = valueStack.getString(MSG);
@@ -24,7 +28,7 @@ public class SuccessNode extends AbstractNode {
 		code = StringUtils.hasText(code) ? code : ResultConstant.SUCCESS_CODE;
 		state = StringUtils.hasText(state) ? state : ResultConstant.SUCCESS_STATE;
 		msg = StringUtils.hasText(msg) ? msg : ResultConstant.SUCCESS_MSG;
-		Result result = new Result(code, state, msg, data);
+		result = new Result(code, state, msg, data);
 		valueStack.setValue(RESULT, result);
 		return null;
 	}

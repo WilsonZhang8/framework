@@ -5,6 +5,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.core.NamedThreadLocal;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
@@ -12,6 +13,7 @@ import com.zghw.framework.common.util.RequestUtils;
 
 public class LoggerInterceptor extends HandlerInterceptorAdapter {
 	public static Logger logger = LoggerFactory.getLogger(LoggerInterceptor.class);
+	private NamedThreadLocal<Long> startTimeThreadLocal = new NamedThreadLocal<Long>("startTimeRequest");
 
 	/**
 	 * 进入请求记录日志
@@ -19,6 +21,9 @@ public class LoggerInterceptor extends HandlerInterceptorAdapter {
 	@Override
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
 			throws Exception {
+		long beginTime = System.currentTimeMillis();// 1、开始时间
+		startTimeThreadLocal.set(beginTime);// 线程绑定变量（该数据只有当前请求的线程可见）
+
 		// 请求使用的协议及版本
 		String protocol = request.getProtocol();
 		// 获得客户端的主机名,如果没有就获取IP地址
@@ -42,13 +47,15 @@ public class LoggerInterceptor extends HandlerInterceptorAdapter {
 	@Override
 	public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler,
 			ModelAndView modelAndView) throws Exception {
-		 logger.info("======请求完成    <<<<");
 	}
 
 	@Override
 	public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex)
 			throws Exception {
-		// 空实现
+		long endTime = System.currentTimeMillis();// 2、结束时间
+		long beginTime = startTimeThreadLocal.get();// 得到线程绑定的局部变量（开始时间）
+		long consumeTime = endTime - beginTime;// 3、消耗的时间
+		logger.info("======请求完成 ，请求处理花费 "+consumeTime +" ms <<<<");
 	}
 
 }
