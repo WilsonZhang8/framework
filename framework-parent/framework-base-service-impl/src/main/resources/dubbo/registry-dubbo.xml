@@ -7,6 +7,9 @@
 	<dubbo:application name="framework-base-service-impl" />
 	<dubbo:registry address="${dubbo.registry.address}"
 		register="${dubbo.registry.register}" />
+	<!-- 增删改 不需要重试 -->
+	<dubbo:consumer check="${dubbo.consumer.check}" retries="0"
+		timeout="${dubbo.timeout}" />
 	<!-- 用dubbo协议在端口暴露服务 -->
 	<dubbo:protocol name="dubbo" port="20880" />
 </beans>

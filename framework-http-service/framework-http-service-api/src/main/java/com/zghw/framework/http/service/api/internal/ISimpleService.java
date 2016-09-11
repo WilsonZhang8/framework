@@ -6,4 +6,8 @@ public interface ISimpleService {
 	public String register(String dataDTO);
 
 	public Result registerToResult(String dataDTO);
+	
+	public String memberStatus(String dataDTO);
+	
+	public Result memberStatusToResult(String dataDTO);
 }

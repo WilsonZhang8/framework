@@ -34,6 +34,11 @@
 			<artifactId>framework-base-service-api</artifactId>
 			<version>${project.parent.version}</version>
 		</dependency>
+		<dependency>
+			<groupId>com.zghw.framework</groupId>
+			<artifactId>framework-http-service-api</artifactId>
+			<version>${project.parent.version}</version>
+		</dependency>
 	</dependencies>
 
 	<!-- 激活不同环境配置 -->

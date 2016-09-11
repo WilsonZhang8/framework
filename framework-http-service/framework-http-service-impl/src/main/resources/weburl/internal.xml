@@ -14,4 +14,8 @@
 		<property name="url" value="${openApi.url}" />
 		<property name="path" value="${simpleRegister.path}" />
 	</bean>
+	<bean id="simpleMemberStatus" class="com.zghw.framework.http.WebURL">
+		<property name="url" value="${openApi.url}" />
+		<property name="path" value="${simpleMemberStatus.path}" />
+	</bean>
 </beans> 

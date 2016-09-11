@@ -36,4 +36,35 @@
 			</list>
 		</property>
 	</bean>
+	<bean id="chain_A1_SIMPLE_002" class="com.zghw.framework.chain.impl.DefaultChain">
+		<property name="first" value="paramValuesNode" />
+		<property name="nodes">
+			<list>
+				<ref bean="paramValuesNode" />
+				<ref bean="parseDTODataNode" />
+				<bean id="verifyNode"
+					class="com.zghw.framework.open.api.module.simple.chain.A1_SIMPLE_002.VerifyNode">
+					<property name="name" value="parseDTODataJoinNode" />
+					<property name="forwards">
+						<map>
+							<entry key="next" value="handleNode" />
+							<entry key="error" value="errorNode" />
+						</map>
+					</property>
+				</bean>
+				<bean id="handleNode"
+					class="com.zghw.framework.open.api.module.simple.chain.A1_SIMPLE_002.HandleNode">
+					<property name="name" value="handleNode" />
+					<property name="forwards">
+						<map>
+							<entry key="success" value="successNode" />
+							<entry key="error" value="errorNode" />
+						</map>
+					</property>
+				</bean>
+				<ref bean="successNode" />
+				<ref bean="errorNode" />
+			</list>
+		</property>
+	</bean>
 </beans> 

@@ -25,7 +25,8 @@ public class BaseController {
 	public static Logger logger = LoggerFactory.getLogger(BaseController.class);
 
 	private Chain chain_A1_BASE_001;// 接口A1_BASE_001
-	//引入处理器
+	private Chain chain_A1_BASE_002;// 接口A1_BASE_002
+	// 引入处理器
 	private ChainHandler handler;
 
 	/**
@@ -48,9 +49,35 @@ public class BaseController {
 		return result;
 	}
 
+	/**
+	 * 冻结会员接口A1_BASE_002
+	 * 
+	 * @param request
+	 * @param response
+	 * @return
+	 * @throws IOException
+	 */
+	@RequestMapping("/freezeMember")
+	public @ResponseBody Result freezeMember(HttpServletRequest request, HttpServletResponse response)
+			throws IOException {
+
+		// 创建值栈
+		ValueStack valueStack = new ValueStack();
+		// request请求放入值栈中
+		valueStack.setValue(ChainConstant.REQUEST, request);
+		// 处理结果
+		Result result = handler.handle(chain_A1_BASE_002, valueStack);
+		return result;
+	}
+
 	@Autowired
 	public void setChain_A1_BASE_001(@Qualifier("chain_A1_BASE_001") Chain chain_A1_BASE_001) {
 		this.chain_A1_BASE_001 = chain_A1_BASE_001;
+	}
+
+	@Autowired
+	public void setChain_A1_BASE_002(@Qualifier("chain_A1_BASE_002") Chain chain_A1_BASE_002) {
+		this.chain_A1_BASE_002 = chain_A1_BASE_002;
 	}
 
 	@Autowired

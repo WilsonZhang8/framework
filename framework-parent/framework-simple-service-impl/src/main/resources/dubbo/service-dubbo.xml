@@ -8,4 +8,6 @@
 	<!-- 提供服务 -->
 	<dubbo:service interface="com.zghw.framework.simple.service.api.IHelloWorldService"
 	 ref="helloWorldService" />
+	<dubbo:service interface="com.zghw.framework.simple.service.api.IMemberStatusService"
+	 ref="memberStatusService" />
 </beans>
