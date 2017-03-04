@@ -34,9 +34,7 @@ public class SimpleController {
 
 	/**
 	 * 接口A1_SIMPLE_001
-	 * http://localhost:8089/framework-open-api/open/simple/register?data={
-	 * "idType":"身份证","idNo":"411024198902151655","name":"zhanghongwei","hobby":
-	 * ["音乐","象棋","跑步"]}
+	 * http://localhost:8080/framework-open-api/open/simple/register?data={"idType":"身份证","idNo":"411024198902151655","name":"zhanghongwei","hobby":["音乐","象棋","跑步"]}
 	 */
 	@RequestMapping("/register")
 	public @ResponseBody Result register(HttpServletRequest request, HttpServletResponse response) throws IOException {

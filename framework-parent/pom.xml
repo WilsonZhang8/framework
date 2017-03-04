@@ -6,13 +6,7 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>pom</packaging>
 	<modules>
-		<module>framework-base-service-api</module>
-		<module>framework-base-service-impl</module>
-		<module>framework-webapp</module>
-		<module>framework-simple-service-api</module>
-		<module>framework-simple-service-impl</module>
-		<module>framework-simple-webapp</module>
-		<module>framework-base-webapp</module>
+		<module>framework-application</module>
 	</modules>
 	<properties>
 		<spring.version>4.1.6.RELEASE</spring.version>
