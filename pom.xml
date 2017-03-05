@@ -6,7 +6,13 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>pom</packaging>
 	<modules>
+		<module>framework-config</module>
+		<module>framework-entity</module>
+		<module>framework-object</module>
+		<module>framework-common</module>
+		<module>framework-middleware</module>
 		<module>framework-application</module>
+		<module>framework-web</module>
 	</modules>
 	<properties>
 		<spring.version>4.1.6.RELEASE</spring.version>
