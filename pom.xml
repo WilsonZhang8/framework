@@ -24,6 +24,7 @@
 		<jackson.version>2.5.3</jackson.version>
 		<httpclient.version>4.3.1</httpclient.version>
 		<commons-lang3.version>3.4</commons-lang3.version>
+		<jedis.version>2.9.0</jedis.version>
 	</properties>
 
 	<dependencyManagement>
@@ -122,6 +123,12 @@
 				<version>${commons-lang3.version}</version>
 			</dependency>
 			<!-- lang3 end -->
+			<!-- https://mvnrepository.com/artifact/redis.clients/jedis -->
+			<dependency>
+				<groupId>redis.clients</groupId>
+				<artifactId>jedis</artifactId>
+				<version>${jedis.version}</version>
+			</dependency>
 
 		</dependencies>
 	</dependencyManagement>

@@ -6,11 +6,12 @@
 		<artifactId>framework-parent</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
-	<artifactId>framework-middleware</artifactId>
-	<packaging>pom</packaging>
-	<modules>
-		<module>framework-chain</module>
-		<module>framework-ons</module>
-		<module>framework-redis</module>
-	</modules>
+
+	<artifactId>framework-redis</artifactId>
+	<dependencies>
+		<dependency>
+			<groupId>redis.clients</groupId>
+			<artifactId>jedis</artifactId>
+		</dependency>
+	</dependencies>
 </project>
