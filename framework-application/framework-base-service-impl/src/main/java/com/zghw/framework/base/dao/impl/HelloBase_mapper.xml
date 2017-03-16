@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zghw.framework.base.dao">
+
+	<sql id="columns">
+		id, name,hits
+	</sql>
+	<sql id="vals">
+		#{id}, #{name}, #{hits}
+	</sql>
+	<sql id="conds">
+		<if test="id != null and id != ''">
+			and id = #{id}
+		</if>
+		<if test="name != null and name != ''">
+			and name = #{name}
+		</if>
+		<if test="hits != null and hits != ''">
+			and hits = #{hits}
+		</if>
+	</sql>
+
+	<insert id="saveHelloBase" parameterType="com.zghw.framework.entity.base.HelloBase"
+		useGeneratedKeys="true" keyProperty="id">
+		<selectKey keyProperty="id" resultType="Long" order="AFTER">
+			select
+			last_insert_id()
+		</selectKey>
+		insert into hello_base (
+		<include refid="columns" />
+		)
+		values (
+		<include refid="vals" />
+		)
+	</insert>
+
+	<delete id="deleteHelloBase">
+		delete from hello_base
+		where id=#{id}
+	</delete>
+	<select id="loadHelloBase" resultType="com.zghw.framework.entity.base.HelloBase">
+		select
+		<include refid="columns" />
+		from hello_base
+		where id=#{id}
+	</select>
+
+	<select id="selectHelloBase" resultType="com.zghw.framework.entity.base.HelloBase">
+		select
+		<include refid="columns" />
+		from hello_base
+		where 1=1
+		<include refid="conds" />
+	</select>
+
+	<update id="updateHelloBase">
+		update hello_base
+		<set>
+			id=#{id},
+			name=#{name},
+			hits=#{hits}
+		</set>
+		where id=#{id}
+	</update>
+
+</mapper>

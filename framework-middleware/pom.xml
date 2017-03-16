@@ -12,5 +12,6 @@
 		<module>framework-chain</module>
 		<module>framework-ons</module>
 		<module>framework-redis</module>
+		<module>framework-mybatis</module>
 	</modules>
 </project>

@@ -13,5 +13,10 @@
 			<artifactId>framework-entity</artifactId>
 			<version>${project.version}</version>
 		</dependency>
+		<dependency>
+			<groupId>com.zghw.framework</groupId>
+			<artifactId>framework-mybatis</artifactId>
+			<version>${project.version}</version>
+		</dependency>
 	</dependencies>
 </project>

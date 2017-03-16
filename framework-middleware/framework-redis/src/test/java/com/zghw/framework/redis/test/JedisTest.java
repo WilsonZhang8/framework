@@ -9,6 +9,7 @@ import redis.clients.jedis.Jedis;
 
 public class JedisTest {
 
+	//数据类型
 	public static void main(String[] args) {
 		// 客户端连接redis
 		Jedis jedis = new Jedis("127.0.0.1", 6379, 2000);

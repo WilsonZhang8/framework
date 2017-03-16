@@ -74,7 +74,7 @@
 			<resource>
 				<directory>${package.env}</directory>
 				<includes>
-					<include>**/*.xml</include>
+					<include>**/*</include>
 				</includes>
 			</resource>
 		</resources>
