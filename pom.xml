@@ -13,6 +13,7 @@
 		<module>framework-middleware</module>
 		<module>framework-application</module>
 		<module>framework-web</module>
+		<module>framework-java</module>
 	</modules>
 	<properties>
 		<spring.version>4.1.6.RELEASE</spring.version>
